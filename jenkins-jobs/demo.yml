@@ -1,0 +1,40 @@
+- job:
+    name: demo_job
+    parameters:
+      - string:
+          name: 'string'
+    builders:
+      - shell: |
+          echo nice ${string}
+
+- builder:
+    name: jjb-test
+    builders:
+      - shell: |
+          jenkins-jobs -l debug test jenkins-jobs/jenkins.yml
+
+- job:
+    name: demo_master
+    scm:
+      - git:
+          url: 'https://github.com/kevit/demo-jenkin-jjb.git'
+          branches:
+            - 'master'
+    builders:
+      - jjb-test
+
+- job:
+    name: demo_pr
+    parameters:
+      - string:
+          name: 'fork'
+      - string:
+          name: 'branch'
+    scm:
+      - git:
+          url: 'https://github.com/kevit/demo-jenkin-jjb.git'
+          branches:
+            - '${branch}'
+    builders:
+      - jjb-test
+
