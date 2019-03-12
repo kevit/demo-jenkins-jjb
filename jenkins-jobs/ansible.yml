@@ -1,6 +1,6 @@
 ---
 - builder:
-  name: Ansible builder
+  name: ansible
   builders:
     - ansible-playbook:
         playbook: "/opt/ansible/playbook.yml"
@@ -33,4 +33,4 @@
           branches:
             - 'ansible'
     builders:
-      - jjb-test
+      - ansible
