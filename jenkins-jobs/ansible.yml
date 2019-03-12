@@ -1,9 +1,4 @@
 ---
-- wrapper:
-    name: default-ci-workflow-wrappers
-    wrappers:
-      - ansicolor:
-        colormap: "xterm"
 
 - builder:
     name: ansible
@@ -40,3 +35,6 @@
             - 'ansible'
     builders:
       - ansible
+    wrappers:
+      - ansicolor:
+          colormap: "xterm"
