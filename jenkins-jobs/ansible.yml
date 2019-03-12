@@ -4,9 +4,9 @@
     builders:
       - ansible-playbook:
           playbook: "/opt/ansible/playbook.yml"
-          inventory-type: "file"
+          inventory-type: "path"
           inventory:
-            file: "/opt/ansible/inventory.yml"
+            path: "/opt/ansible/inventory.yml"
           hosts: "masters"
           tags-to-run: "tagrun"
           tags-to-skip: "tagskip"
