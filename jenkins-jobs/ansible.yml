@@ -1,9 +1,12 @@
 ---
-- builder:
-    name: ansible
+- wrapper:
+    name: default-ci-workflow-wrappers
     wrappers:
       - ansicolor:
         colormap: "xterm"
+
+- builder:
+    name: ansible
     builders:
       - ansible-playbook:
           playbook: "/opt/ansible/playbook.yml"
