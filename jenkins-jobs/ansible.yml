@@ -1,6 +1,9 @@
 ---
 - builder:
     name: ansible
+    wrappers:
+      - ansicolor:
+        colormap: "xterm"
     builders:
       - ansible-playbook:
           playbook: "/opt/ansible/playbook.yml"
